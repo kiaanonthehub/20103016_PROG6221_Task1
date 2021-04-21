@@ -1,0 +1,48 @@
+CREATE DATABASE BudgetApp
+
+USE BudgetApp;
+
+CREATE TABLE [User]
+(
+Username VARCHAR(25) PRIMARY KEY, 
+Password VARCHAR(16)
+);
+
+CREATE TABLE GeneralExpense
+(
+Username VARCHAR(25) FOREIGN KEY REFERENCES[User] (Username),
+Income DECIMAL NOT NULL,
+Tax DECIMAL NOT NULL,
+Groceries DECIMAL NOT NULL,
+WaterLights DECIMAL NOT NULL,
+Travel DECIMAL NOT NULL,
+Phone DECIMAL NOT NULL,
+OtherExp DECIMAL NOT NULL
+);
+
+CREATE TABLE HomeLoan
+(
+Username VARCHAR(25) FOREIGN KEY REFERENCES[User] (Username),
+Price DECIMAL,
+Deposit DECIMAL,
+Interest DECIMAL,
+Months INT
+);
+
+CREATE TABLE HomeRent
+(
+Username VARCHAR(25) FOREIGN KEY REFERENCES[User] (Username),
+Rent DECIMAL,
+);
+
+CREATE TABLE Vehicle
+(
+Username VARCHAR(25) FOREIGN KEY REFERENCES[User] (Username),
+Make VARCHAR (50) NOT NULL,
+Model VARCHAR (50) NOT NULL,
+Price DECIMAL NOT NULL,
+Deposit DECIMAL NOT NULL,
+Interest DECIMAL NOT NULL,
+Insurance DECIMAL NOT NULL,
+Months INT NOT NULL
+);
